@@ -1,5 +1,5 @@
 const express = require('express');
-const { getRandomQuote, getRandomNuMetal } = require('./quotes');
+const { getRandomQuote, getRandomRock, getRandomPop } = require('./quotes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -8,8 +8,12 @@ app.get('/quote', (req, res) => {
     res.json(getRandomQuote());
 });
 
-app.get('/nu-metal', (req, res) => {
-    res.json(getRandomNuMetal());
+app.get('/rock', (req, res) => {
+    res.json(getRandomRock());
+});
+
+app.get('/pop', (req, res) => {
+    res.json(getRandomPop());
 });
 
 app.listen(port, () => {
