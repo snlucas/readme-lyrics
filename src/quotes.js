@@ -1,10 +1,14 @@
-const { rock } = require("./categories/rock");
-const { pop } = require("./categories/pop");
+const rockQuotes = require('./quotes/rockQuotes');
+const popQuotes = require('./quotes/popQuotes');
 
-const rand = (...categories) => categories.map(category => category[Math.floor(Math.random() * category.length)]);
+const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-const getRandomQuote = () => rand(rock, pop);
-const getRandomRock = () => rand(rock);
-const getRandomPop = () => rand(pop);
+const getRandomQuote = () => ({
+    rock: rand(rockQuotes),
+    pop: rand(popQuotes)
+});
+
+const getRandomRock = () => rand(rockQuotes);
+const getRandomPop = () => rand(popQuotes);
 
 module.exports = { getRandomQuote, getRandomRock, getRandomPop };
